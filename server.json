@@ -1,0 +1,28 @@
+{
+  "host": "0.0.0.0",
+  "port": 8080,
+  "backend": "cuda",
+  "device": 0,
+  "threads": 8,
+  "voice_dir": "/opt/voices",
+  "models": [
+    {
+      "id": "omnivoice",
+      "family": "omnivoice",
+      "path": "/opt/models/OmniVoice-GGUF/omnivoice-f16.gguf",
+      "task": "tts",
+      "mode": "offline",
+      "session_options": {
+        "omnivoice.perf_mode": "flash_attention",
+        "omnivoice.packed_cfg": true,
+        "omnivoice.device_scoring": true,
+        "omnivoice.packed_projections": true
+      },
+      "default_request_options": {
+        "num_inference_steps": 16,
+        "denoise": true,
+        "position_temperature": 4.0
+      }
+    }
+  ]
+}
